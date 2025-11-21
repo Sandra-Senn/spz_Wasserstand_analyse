@@ -28,3 +28,6 @@ ext/libtool
 
 # data 
 data/wasserstand
+
+
+.mypy_cache
