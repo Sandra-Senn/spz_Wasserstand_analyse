@@ -27,5 +27,5 @@ Wir wollen herausfinden, welche meteorologischen Faktoren und vergangene Wassers
 ## Zielsetzung
 
 - Entwicklung eines Vorhersagemodells für den Wasserstand der Reuss in Andermatt
-- Ableitung hydrologisch relevanter Einflussgrößen
+- Ableitung hydrologisch relevanter Einflussgrössen
 - Dokumentation der Analyseschritte und Ergebnisse
