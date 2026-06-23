@@ -99,3 +99,52 @@ Kurzüberblick über die wichtigsten Methodiken, die in den Notebooks zur Zeitre
 
 Die Notebooks enthalten konkrete Implementierungen und Beispiele zu diesen Punkten; bei Bedarf kann ich einzelne Methoden in separaten, kommentierten Zellen ausführlicher dokumentieren.
 
+## Branching Workflow
+
+Wir verwenden **GitHub Flow**:
+
+- `main` — stabiler Branch, immer lauffähig. Direkte Commits sind gesperrt.
+- `feature/<name>` — ein Branch pro Feature oder Notebook-Abschnitt (z. B. `feature/vorhersage-model`)
+- `fix/<name>` — für Bugfixes
+
+**Ablauf:**
+1. `git checkout -b feature/dein-feature`
+2. Lokal entwickeln und committen
+3. Branch pushen und Pull Request auf GitHub öffnen
+4. Mindestens ein Teammitglied reviewed und approved
+5. Merge in `main` via PR
+
+**Beispiele für Branch-Namen:**
+- `feature/extremwert-analyse`
+- `feature/random-forest-tuning`
+- `fix/requirements-pyextremes`
+
+## Code Review Checkliste (Pull Requests)
+
+Vor dem Approven eines PRs prüfen:
+- [ ] Code besteht ruff-Check (keine Style-Fehler)
+- [ ] Alle Unit Tests laufen durch
+- [ ] Neue Funktionalität hat mindestens einen Unit Test
+- [ ] Keine hardcodierten Dateipfade — relative Pfade vom Repo-Root
+- [ ] Notebooks vor dem Commit geleert (`Kernel → Restart & Clear Output`)
+- [ ] `requirements.txt` aktualisiert falls neue Packages hinzugefügt
+
+## CI/CD Pipeline
+
+Bei jedem Push und Pull Request läuft automatisch via GitHub Actions:
+
+1. **Lint** — `ruff check tests/` prüft Python Code Style
+2. **Unit Tests** — `pytest tests/ -v` führt alle Tests aus
+3. **Artefakte** — Testergebnisse werden als `test-results.xml` gespeichert
+
+Status kann unter dem **Actions** Tab auf GitHub eingesehen werden.
+
+## Datenversionierung (DVC)
+
+Die rohen Wasserstands-Daten (`data/wasserstand/`) sind zu gross für Git und werden mit **DVC** versioniert.
+
+Daten herunterladen nach dem Klonen:
+```bash
+pip install dvc
+dvc pull
+```
