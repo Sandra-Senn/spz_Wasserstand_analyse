@@ -1,0 +1,6 @@
+outs:
+- md5: f3670c32abc449a0a3c1f40d3c7076f5.dir
+  size: 2623913908
+  nfiles: 1699
+  hash: md5
+  path: wasserstand
