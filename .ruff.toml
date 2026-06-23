@@ -1,0 +1,7 @@
+line-length = 100
+
+[lint]
+# E/W = PEP8 style errors
+# F   = Pyflakes (unused imports, undefined variables)
+select = ["E", "W", "F"]
+ignore = ["E203"] # E203 = Whitespace before ':'
