@@ -2,6 +2,9 @@
 .temp/
 .libs/
 .venv/
+*__pycache__/
+.mypy_cache
+*_cache/
 
 # Object files, generates by linker
 *.lo
@@ -14,4 +17,4 @@
 data/wasserstand
 
 
-.mypy_cache
+
